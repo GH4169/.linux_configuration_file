@@ -10,7 +10,7 @@ fi
 
 # User specific aliases and functions
 #export PS1='[\u@\h `pwd`]\$'
-export PS1="\[\e[1;36m\]zhou:\[\e[m\]\[\e[1;31m\]\w\[\e[m\]\[\e[1;37m\]\\$\[\e[m\] "
+export PS1="\[\e[1;36m\]zhou:\[\e[m\]\[\e[1;31m\]\w\[\e[m\]\[\e[1;37m\]\$\[\e[m\] "
 alias gv="gvim"
 alias g="gvim -p"
 alias la="ls -a"
@@ -121,3 +121,5 @@ alias relmg="kill_lmg ; lmg_synopsys; lmg_mentor"
 #=============================================================================================
 alias t='gnome-terminal';
 
+export PATH=$HOME/.local/bin:$PATH
+#test for github
