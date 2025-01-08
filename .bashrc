@@ -17,6 +17,7 @@ alias la="ls -a"
 alias ll="ls -al"
 alias ..="cd ../"
 alias gt="/usr/bin/gnome-terminal --tab&"
+alias grep="grep -En --color"
 cd() { builtin cd "$@" && ls; }
 
 #=============================================================================================
@@ -123,3 +124,4 @@ alias t='gnome-terminal';
 
 export PATH=$HOME/.local/bin:$PATH
 #test for github
+export DESIGNWARE_HOME=/home/synopsys/coretool/vip_2020_12
