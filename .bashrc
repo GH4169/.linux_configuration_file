@@ -18,6 +18,7 @@ alias ll="ls -al"
 alias ..="cd ../"
 alias gt="/usr/bin/gnome-terminal --tab&"
 alias grep="grep -En --color"
+alias cp="cp -r"
 cd() { builtin cd "$@" && ls; }
 
 #=============================================================================================
