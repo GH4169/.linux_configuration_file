@@ -24,11 +24,11 @@ cd() { builtin cd "$@" && ls; }
 #=============================================================================================
 #   Synopsys Tools
 #=============================================================================================
-export DVE_HOME=/home/synopsys/vcs/O-2018.09-SP2
-#export DVE_HOME=/home/synopsys/vcs-mx/O-2018.09-SP2
+# export DVE_HOME=/home/synopsys/vcs/O-2018.09-SP2
+export DVE_HOME=/home/synopsys/vcs-mx/O-2018.09-SP2
 
-export VCS_HOME=/home/synopsys/vcs/O-2018.09-SP2
-#export VCS_HOME=/home/synopsys/vcs-mx/O-2018.09-SP2
+# export VCS_HOME=/home/synopsys/vcs/O-2018.09-SP2
+export VCS_HOME=/home/synopsys/vcs-mx/O-2018.09-SP2
 
 export VERDI_HOME=/home/synopsys/verdi/Verdi_O-2018.09-SP2
 export SCL_HOME=/home/synopsys/scl/2018.06
