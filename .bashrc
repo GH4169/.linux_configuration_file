@@ -13,12 +13,28 @@ fi
 export PS1="\[\e[1;36m\]zhou:\[\e[m\]\[\e[1;31m\]\w\[\e[m\]\[\e[1;37m\]\$\[\e[m\] "
 alias gv="gvim"
 alias g="gvim -p"
+alias ls="ls --color=auto"
 alias la="ls -a"
-alias ll="ls -al"
 alias ..="cd ../"
 alias gt="/usr/bin/gnome-terminal --tab&"
 alias grep="grep -En --color"
-alias cp="cp -r"
+alias gp='git pull && git submodule update --init --recursive'
+alias grep='grep -En --color=auto'
+alias cp='cp -irf'
+
+alias ll="ls -alr --time-style='+%Y-%m-%d %H:%M:%S'"
+alias gsub='git submodule update --init'
+alias gs='git status'
+alias gc='git commit -m '
+alias gf='git fetch'
+alias gst='git stash'
+alias gsp='git stash pop'
+alias gl='git log --graph -n 5'
+alias gla='git log --all --graph --oneline --decorate'
+# example: gd HEAD -- sim/makefile
+alias gd='git difftool --tool=gvimdiff'
+alias du='du -h --max-depth=1'
+
 cd() { builtin cd "$@" && ls; }
 
 #=============================================================================================
@@ -126,3 +142,27 @@ alias t='gnome-terminal';
 export PATH=$HOME/.local/bin:$PATH
 #test for github
 export DESIGNWARE_HOME=/home/synopsys/coretool/vip_2020_12
+
+if [ -f "$HOME/.linux_configuration_file/.proxy_env"]; then
+	source $HOME/.linux_configuration_file/.proxy_env
+fi
+
+# Enable bash-completion
+if [ -f /etc/bash_completion ]; then
+    . /etc/bash_completion
+fi
+
+# Enable fuzzy completion (ignore case)
+bind 'set completion-ignore-case on'
+# Enable auto-completion menu
+bind 'set show-all-if-ambiguous on'
+
+# 绑定向上箭头：搜索历史记录中以当前输入为前缀的命令（向后找）
+bind '"\e[A": history-search-backward'
+# 绑定向下箭头：搜索历史记录中以当前输入为前缀的命令（向前找）
+bind '"\e[B": history-search-forward'
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+export LC_ALL=en_US.UTF-8
