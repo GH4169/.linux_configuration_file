@@ -10,7 +10,6 @@ fi
 
 # User specific aliases and functions
 #export PS1='[\u@\h `pwd`]\$'
-export PS1="\[\e[1;36m\]zhou:\[\e[m\]\[\e[1;31m\]\w\[\e[m\]\[\e[1;37m\]\$\[\e[m\] "
 alias gv="gvim"
 alias g="gvim -p"
 alias ls="ls --color=auto"
@@ -143,26 +142,32 @@ export PATH=$HOME/.local/bin:$PATH
 #test for github
 export DESIGNWARE_HOME=/home/synopsys/coretool/vip_2020_12
 
-if [ -f "$HOME/.linux_configuration_file/.proxy_env"]; then
+if [ -f "$HOME/.linux_configuration_file/.proxy_env" ]; then
 	source $HOME/.linux_configuration_file/.proxy_env
 fi
 
-# Enable bash-completion
-if [ -f /etc/bash_completion ]; then
-    . /etc/bash_completion
+
+# 只有在 Bash 环境下，才运行这些 bind 命令
+if [ -n "$BASH_VERSION" ]; then
+	export PS1="\[\e[1;36m\]zhou:\[\e[m\]\[\e[1;31m\]\w\[\e[m\]\[\e[1;37m\]\$\[\e[m\] "
+	# Enable bash-completion
+	if [ -f /etc/bash_completion ]; then
+	    . /etc/bash_completion
+	fi
+
+	# Enable fuzzy completion (ignore case)
+	bind 'set completion-ignore-case on'
+	# Enable auto-completion menu
+	bind 'set show-all-if-ambiguous on'
+	
+	# 绑定向上箭头：搜索历史记录中以当前输入为前缀的命令（向后找）
+	bind '"\e[A": history-search-backward'
+	# 绑定向下箭头：搜索历史记录中以当前输入为前缀的命令（向前找）
+	bind '"\e[B": history-search-forward'
+
+	export NVM_DIR="$HOME/.nvm"
+	[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+	[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+	export LC_ALL=en_US.UTF-8
 fi
-
-# Enable fuzzy completion (ignore case)
-bind 'set completion-ignore-case on'
-# Enable auto-completion menu
-bind 'set show-all-if-ambiguous on'
-
-# 绑定向上箭头：搜索历史记录中以当前输入为前缀的命令（向后找）
-bind '"\e[A": history-search-backward'
-# 绑定向下箭头：搜索历史记录中以当前输入为前缀的命令（向前找）
-bind '"\e[B": history-search-forward'
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-export LC_ALL=en_US.UTF-8
+uvx pycowsay "Hello, Rongyi Zhou! Happy coding today!"
