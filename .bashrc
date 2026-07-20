@@ -33,6 +33,7 @@ alias gla='git log --all --graph --oneline --decorate'
 # example: gd HEAD -- sim/makefile
 alias gd='git difftool --tool=gvimdiff'
 alias du='du -h --max-depth=1'
+alias claude='claude --allow-dangerously-skip-permissions'
 
 cd() { builtin cd "$@" && ls; }
 
