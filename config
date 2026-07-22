@@ -1,0 +1,5 @@
+Host github.com
+    HostName github.com
+    User git
+    # 动态获取 WSL 宿主机 IP，并使用 SOCKS5 协议通过 7897 端口进行转发
+    ProxyCommand nc -X 5 -x $(ip route show default | awk '{print $3}'):7897 %h %p
